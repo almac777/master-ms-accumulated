@@ -8,4 +8,5 @@ import java.util.List;
 public interface AccumulatedRatingService {
     List<AccumulatedRating> list();
     RatingDto accumulate(RatingDto ratingDto);
+    List<AccumulatedRating> byArticle(Long id);
 }

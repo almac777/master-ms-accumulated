@@ -3,6 +3,9 @@ server:
     8084
 
 spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
   jpa:
     database: h2
     show-sql: false
@@ -20,8 +23,6 @@ spring:
     client:
       serviceUrl:
         defaultZone: http://localhost:8761/eureka/
-
-
 ## Not necessary right now.
 # jwt:
 #   signingKey: ""

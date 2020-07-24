@@ -33,7 +33,7 @@ public class DefaultAccumulatedRatingService implements AccumulatedRatingService
                     .amount(1L)
                     .build();
         } else {
-            var acc = accumulated.get();
+            var acc = accumulated.get(0);
             var amount = acc.getAmount();
             var objectivityRating = acc.getObjectivityRating() * amount;
             var completionRating = acc.getCompletionRating() * amount;
@@ -50,5 +50,10 @@ public class DefaultAccumulatedRatingService implements AccumulatedRatingService
         }
         this.accumulatedRatingRepository.save(accumulatedRating);
         return ratingDto;
+    }
+
+    @Override
+    public List<AccumulatedRating> byArticle(Long id) {
+        return accumulatedRatingRepository.findByArticleId(id);
     }
 }
